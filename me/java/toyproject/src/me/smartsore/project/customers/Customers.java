@@ -8,11 +8,11 @@ import java.util.Arrays;
 
 // Customer 모든 정보를 담고 있는 그룹으로 묶여 1개로 관리 -> 싱글톤패턴(객체가 무조건 1개, static)
 public class Customers {
-
     protected static Customers allCustomers;
     protected final Groups allGroups = Groups.getInstance();
-    private static int SIZE = 0;           // 실제 배열 capacity
-    private int count;                   // 실제 인스턴스 개수
+
+    public static int SIZE = 5;
+    protected int count;
     protected Customer[] customers;
 
     public static Customers getInstance() {
@@ -22,27 +22,40 @@ public class Customers {
         return allCustomers;
     }
 
-    public Customers() { this.customers = new Customer[SIZE]; }
+    public Customers() {
+        this.customers = new Customer[SIZE];
+    }
 
-    public int getCount() { return this.count; }
-
-    public void setCount(int count) { this.count = count; }
-
-    public Customer[] getCustomers() {
-        int realCount = 0;
-        for (int i = 0; i < this.customers.length && this.customers[i] != null; ++i) {
-            ++realCount;
-        }
-        return Arrays.copyOf(this.customers, realCount);
+    public int getCount() {
+        return this.count;
     }
 
     public void setCustomers(Customer[] customers) {
         this.customers = customers;
     }
 
-    public int length() { return this.customers.length; }
+    public Customer[] getCustomers() {
+        int realCount = 0;
 
-    public boolean isNull() { return this.customers == null; }
+        for(int i = 0; i < this.customers.length && this.customers[i] != null; ++i) {
+            ++realCount;
+        }
+
+        return Arrays.copyOf(this.customers, realCount);
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int length() {
+        return this.customers.length;
+    }
+
+    private boolean isNull() {
+        return this.customers == null;
+    }
+
     public boolean isEmpty() {
         return this.count == 0;
     }
@@ -54,6 +67,7 @@ public class Customers {
         } else {
             this.extend(customer);
         }
+
     }
 
     public void add(int index, Customer customer) {
@@ -61,7 +75,7 @@ public class Customers {
             if (this.count < SIZE) {
                 Customer var10000 = this.customers[index];
 
-                for (int i = this.customers.length - 1; i >= index ; --i) {
+                for (int i = this.customers.length - 1; i >= index; --i) {
                     this.customers[i + 1] = this.customers[i];
                 }
 
@@ -70,6 +84,7 @@ public class Customers {
             } else {
                 this.extend(index, customer);
             }
+
         }
     }
 
@@ -101,7 +116,7 @@ public class Customers {
         } else if (index >= 0 && index < this.count) {
             this.customers[index] = null;
 
-            for (int i = index + 1; i < this.count; ++i) {
+            for(int i = index + 1; i < this.count; ++i) {
                 this.customers[i - 1] = this.customers[i];
             }
 
@@ -118,7 +133,7 @@ public class Customers {
         } else {
             this.customers[this.count - 1] = null;
             --this.count;
-            return -1;
+            return 1;
         }
     }
 
@@ -130,11 +145,10 @@ public class Customers {
         this.customers[i] = customer;
     }
 
-
     public Customers findCustomers(GroupType type) {
         Customers custs = new Customers();
         if (custs != null) {
-            for (int i = 0; i < this.count; ++i) {
+            for(int i = 0; i < this.count; ++i) {
                 Customer cust = this.get(i);
                 if (cust != null) {
                     Group grp = cust.getGroup();
@@ -148,6 +162,7 @@ public class Customers {
                 }
             }
         }
+
         return custs;
     }
 
@@ -171,17 +186,19 @@ public class Customers {
                 Customer cust = customers[i];
                 cust.setGroup(groups.findGroupFor(cust));
             }
+
         }
     }
+
     public void print() {
         for (int i = 0; i < count; i++) {
             if (customers[i] != null) {
-                System.out.printf("No,  %4d => %s\n", (i + 1), customers[i]);
+                System.out.printf("No.  %4d => %s\n", (i + 1), customers[i]);
             }
         }
     }
 
-    public ClassifiedCustomers classify() {
+    public ClassifiedCustomersGroup classify() {
         ClassifiedCustomersGroup classifiedCustomersGroup = ClassifiedCustomersGroup.getInstance();
 
         for (int i = 0; i < allGroups.length(); ++i) {
@@ -194,18 +211,18 @@ public class Customers {
             classifiedCustomers.setCount(customers.length);
             classifiedCustomers.setCustomers(customers);
 
-            classifiedCustomers.set(i, classifiedCustomers);
+            classifiedCustomersGroup.set(i, classifiedCustomers);
         }
         return classifiedCustomersGroup;
     }
 
-    @Override
     public String toString() {
         String str = "";
 
         for (int i = 0; i < this.count; ++i) {
-            str += this.customers[i].toString() + "\n";
+            str = str + this.customers[i].toString() + "\n";
         }
+
         return str;
     }
 }

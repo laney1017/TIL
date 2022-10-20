@@ -14,15 +14,22 @@ public class ClassifiedCustomers extends Customers {
     public ClassifiedCustomers() {
     }
 
-    public ClassifiedCustomers(Group group) { this.group = group; }
+    public ClassifiedCustomers(Group group) {
+        this.group = group;
+    }
 
-    public Group getGroup() { return group; }
 
-    public void setGroup(Group group) { this.group = group; }
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 
     @Override
     public boolean equals(Object o) {
-        if (this == 0) return true;
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ClassifiedCustomers that = (ClassifiedCustomers) o;
         return group.equals(that.group);
