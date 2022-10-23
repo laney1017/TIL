@@ -1,0 +1,10 @@
+package me.jungsuk_basic.ch11;
+
+import java.util.HashMap;
+
+public class Ex11_16 {
+    public static void main(String[] args) {
+        HashMap map = new HashMap();
+        map.put("myId", "1234");
+    }
+}
