@@ -21,7 +21,7 @@ public class Menu {   // 실행 시 제일 처음 메인 메뉴화면
 
         while (true) {
             System.out.println("=======메뉴=======");
-            System.out.println(" 1. 분류 기준");
+            System.out.println(" 1. 분류 기준 ");
             System.out.println(" 2. 고객 정보");
             System.out.println(" 3. 고객 분류");
             System.out.println(" 4. 종료");
