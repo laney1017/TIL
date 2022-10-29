@@ -21,6 +21,7 @@ public class Groups {
         System.out.println(groups.toString());
     }
     public void updateParameter() {
+        static Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("1. GENERAL ");
             System.out.println("2. VIP ");
