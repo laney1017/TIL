@@ -34,6 +34,9 @@ class Ex7_1 {
         stv.displayCaption("Hello, World");
     }
 }
+//실행결과
+//11
+//Hello, World
 //Tv클래스로부터 상속받고 기능을 추가하여 SmartTv클래스 작성
 //caption은 캡션긴으의 상태(on/off)를 저장하기 위한 boolean형 변수
 //displayCaption(String text)은 매개변수로 넘겨받은 문자열(text)을 캡션이 켜져 있는 경우(caption의 값이 true인 경우)에만 화면에 출력한다.
