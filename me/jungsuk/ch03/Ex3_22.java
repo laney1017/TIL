@@ -20,12 +20,25 @@ public class Ex3_22 {
          */
 
         System.out.printf("d==f    %b%n", d == f);
+        /* d ==(double)f
+           0.10000000000000001 == (double) 0.10000000129011612
+           0.10000000000000001 == 0.10000000129011612
+           false
+         */
+
         System.out.printf("d==d2   %b%n", d == d2);
         System.out.printf("d2==f   %b%n", d2 == f);
-        System.out.printf("(float)d==f   %b%n", (float) d == f);
         /* float타입의 값을 double타입으로 형변환하면, 부호화 지수는 달라지지 않고 가수의 빈자리를 0으로 체운다.
            즉, float타입의 값을 정밀도가 더 높은 double타입으로 형변환했다고 해서 오차가 적어지는 것은 아니다.
          */
+
+        System.out.printf("(float)d==f   %b%n", (float) d == f);
+        /* (float)d ==f
+           (float)0.10000000000000001 == 0.10000000129011612
+           0.10000000129011612 == 0.10000000129011612
+           true
+         */
+
     }
 }
 //실행결과
@@ -38,3 +51,7 @@ public class Ex3_22 {
 //d==d2   false
 //d2==f   true
 //(float)d==f   true
+
+// float타입의 값과 double타입의 값을 비교하려면
+// double타입의 값을 float타입으로 형변환한 다음에 비교해야 한다.
+// 또는, 어느정도의 오차는 무시하고 두 타입의 값을 앞에서 몇 자리만 잘라서 비교할 수도 있다.
