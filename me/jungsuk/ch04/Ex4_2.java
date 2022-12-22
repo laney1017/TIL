@@ -17,6 +17,8 @@ public class Ex4_2 {
         }
         if (input != 0) {
             System.out.println("입력하신 숫자는 0이 아닙니다.");
+//          괄호를 생략했기 때문에 위의 조건식에 속하는 문장은 윗문장 한문장이다.
+//          아래문장은 위의 조건식에 속하지 않기 떄문에 항상 출력된다.
             System.out.printf("입력하신 숫자는 %d입니다.", input);
         }
     }
