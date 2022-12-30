@@ -1,6 +1,6 @@
 package me.jungsuk.ch06;
 
-public class Exc6_4 {
+public class Ex6_4 {
     public static void main(String[] args) {
         Tv4[] tvArr = new Tv4[3];         // 길이가 3인 Tv객체 배열
 
