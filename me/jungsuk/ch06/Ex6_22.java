@@ -21,7 +21,8 @@ public class Ex6_22 {
         return result;
     }
 
-    /*
+    /*  아래 오버로딩한 메서드를 주석처리 하지 않으면 메서드를 호출했을 때, 구별되지 못하는 경우가 발생하기 때문에 컴파일 에러가 발생한다.
+        가능하면 가변인자를 사용한 메서드는 오버로딩하지 않는 것이 좋다.
     static String concatenate(String... args) {
         return concatenate("", args);
     }
