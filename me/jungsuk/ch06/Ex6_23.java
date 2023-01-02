@@ -18,6 +18,7 @@ public class Ex6_23 {
 //      Data5 d5 = new Data5();       // 컴파일 에러 발생. Data5 d5 = new Data5(10);     OK
     }
 }
+
 /* 컴파일 에러가 발생하지 않도록 하기 위해서는
    Data5(int x)를 사용하던가 아니면 클래스 Data5에 생성자 Data5()를 추가로 정의해 줘야 한다.
  */
