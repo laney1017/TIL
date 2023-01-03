@@ -1,7 +1,5 @@
 package me.jungsuk.ch07;
 
-import java.awt.*;
-
 class Ex7_2 {          // class DrawShape
     public static void main(String[] args) {
         Point[] p = {   new Point(100, 100),
